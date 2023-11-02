@@ -1,0 +1,21 @@
+version: 0.0
+os: linux
+files:
+  - source: /*
+    destination: /home/ubuntu/wordpress
+hooks:
+  ApplicationStop:
+    - location: scripts/stop-apache.sh
+      timeout: 300
+  AfterInstall:
+    - location: scripts/install-apache.sh
+      timeout: 300
+  BeforeInstall:
+    - location: scripts/site-availability.sh
+      timeout: 300
+  ApplicationStart:
+    - location: scripts/start-app.sh
+    # - location: scripts/start_application
+      timeout: 300
+  # ValidateService:
+  #   - location: scripts/basic_health_check.sh

@@ -1,0 +1,15 @@
+version: 0.2
+env: 
+  secrets-manager: 
+   SECRET_VALUE: "arn:aws:secretsmanager:ap-south-1:391964367856:secret:wordpress-rds-password-8pHnXs"
+  
+phases:
+  install:
+    runtime-versions:
+      php: 8.2
+  post_build:
+    commands:
+      - echo $SECRET_VALUE
+      - zip -r wordpress.zip ./*
+artifacts:
+  files: wordpress.zip
