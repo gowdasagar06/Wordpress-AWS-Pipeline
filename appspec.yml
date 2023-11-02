@@ -8,10 +8,10 @@ hooks:
     - location: scripts/stop-apache.sh
       timeout: 300
       runas: root
-  BeforeInstall:
-    - location: scripts/install-apache.sh
-      timeout: 300
-      runas: root
+  #BeforeInstall:
+   # - location: scripts/install-apache.sh
+    #  timeout: 300
+     # runas: root
   AfterInstall:
     - location: scripts/site-availability.sh
       timeout: 300
