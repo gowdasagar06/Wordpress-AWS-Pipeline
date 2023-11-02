@@ -1,16 +1,28 @@
 version: 0.2
 env: 
-  secrets-manager: 
-   SECRET_VALUE: "arn:aws:secretsmanager:ap-south-1:391964367856:secret:wordpress-rds-password-8pHnXs"
+  secrets-manager:
+    DB_USER: arn:aws:secretsmanager:ap-south-1:391964367856:secret:wordpress-rds-password-8pHnXs:username
+    DB_PASSWORD : arn:aws:secretsmanager:ap-south-1:391964367856:secret:wordpress-rds-password-8pHnXs:password
+    DB_HOST: arn:aws:secretsmanager:ap-south-1:391964367856:secret:wordpress-rds-password-8pHnXs:host
+    DB_NAME: arn:aws:secretsmanager:ap-south-1:391964367856:secret:wordpressdbname-jDbcII:database_name
   
 phases:
   install:
     runtime-versions:
       php: 8.2
-  post_build:
+  pre_build:
     commands:
-      - echo $SECRET_VALUE
+      - sudo apt install -y gettext
+      - export DB_NAME=$DB_NAME
+      - export DB_USER=$DB_USER
+      - export DB_PASS=$DB_PASSWORD
+      - export DB_HOST=$DB_HOST
       #- zip -r wordpress.zip ./*
+  build:
+    commands:
+      - envsubst < wp-config-sample.php
+      - envsubst < wp-config-sample.php >> wp-config.php
+      - cat wp-config.php
 artifacts:
   files: 
     - '**/*'
