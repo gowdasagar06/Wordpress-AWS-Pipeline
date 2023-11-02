@@ -12,17 +12,17 @@ phases:
       php: 8.2
   pre_build:
     commands:
-      - sudo apt install -y gettext
-      - export DB_NAME=$DB_NAME
-      - export DB_USER=$DB_USER
-      - export DB_PASS=$DB_PASSWORD
-      - export DB_HOST=$DB_HOST
+    #   - sudo apt install -y gettext
+    #   - export DB_NAME=$DB_NAME
+    #   - export DB_USER=$DB_USER
+    #   - export DB_PASS=$DB_PASSWORD
+    #   - export DB_HOST=$DB_HOST
       #- zip -r wordpress.zip ./*
   build:
     commands:
-      - envsubst < ./wordpress/wp-config-sample.php
-      - envsubst < ./wordpress/wp-config-sample.php >> ./wordpress/wp-config.php
-      - cat ./wordpress/wp-config.php
+    #   - envsubst < ./wordpress/wp-config-sample.php
+    #   - envsubst < ./wordpress/wp-config-sample.php >> ./wordpress/wp-config.php
+    #   - cat ./wordpress/wp-config.php
 artifacts:
   files: 
     - '**/*'
