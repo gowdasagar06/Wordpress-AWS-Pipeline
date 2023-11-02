@@ -20,9 +20,9 @@ phases:
       #- zip -r wordpress.zip ./*
   build:
     commands:
-      - envsubst < wp-config-sample.php
-      - envsubst < wp-config-sample.php >> wp-config.php
-      - cat wp-config.php
+      - envsubst < ./wordpress/wp-config-sample.php
+      - envsubst < ./wordpress/wp-config-sample.php >> ./wordpress/wp-config.php
+      - cat ./wordpress/wp-config.php
 artifacts:
   files: 
     - '**/*'
