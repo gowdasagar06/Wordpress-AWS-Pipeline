@@ -10,6 +10,6 @@ phases:
   post_build:
     commands:
       - echo $SECRET_VALUE
-    #   - zip -r wordpress.zip ./*
+      - zip -r wordpress.zip ./*
 artifacts:
-  files: wordpress.zip
+  files: wordpress
