@@ -12,4 +12,4 @@ phases:
       - echo $SECRET_VALUE
       - zip -r wordpress.zip ./*
 artifacts:
-  files: '**/*'
+  files: wordpress.zip
