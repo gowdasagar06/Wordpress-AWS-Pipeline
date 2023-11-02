@@ -7,5 +7,5 @@
 # sudo a2enmod rewrite
 # sudo apache2ctl configtest
 # sudo systemctl restart apache2
-sudo unzip /home/ubuntu/wordpress.zip 2>/dev/null
-sudo cp -R /home/ubuntu/wordpress /var/www/ 2>/dev/null
+# sudo unzip /home/ubuntu/wordpress.zip 2>/dev/null
+# sudo cp -R /home/ubuntu/wordpress /var/www/ 2>/dev/null
