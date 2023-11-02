@@ -1,9 +1,9 @@
 version: 0.2
 env: 
   secrets-manager:
-    DB_USER: arn:aws:secretsmanager:ap-south-1:391964367856:secret:wordpress-rds-password-8pHnXs:username
-    DB_PASSWORD : arn:aws:secretsmanager:ap-south-1:391964367856:secret:wordpress-rds-password-8pHnXs:password
-    DB_HOST: arn:aws:secretsmanager:ap-south-1:391964367856:secret:wordpress-rds-password-8pHnXs:host
+    DB_USER: arn:aws:secretsmanager:ap-south-1:391964367856:secret:new-wordpress-cred-5DrtXR:username
+    DB_PASSWORD : arn:aws:secretsmanager:ap-south-1:391964367856:secret:new-wordpress-cred-5DrtXR:password
+    DB_HOST: arn:aws:secretsmanager:ap-south-1:391964367856:secret:new-wordpress-cred-5DrtXR:host
     DB_NAME: arn:aws:secretsmanager:ap-south-1:391964367856:secret:wordpressdbname-jDbcII:database_name
   
 phases:
