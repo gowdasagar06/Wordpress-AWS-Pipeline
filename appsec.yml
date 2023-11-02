@@ -2,7 +2,7 @@ version: 0.0
 os: linux
 files:
   - source: /
-    destination: /var/www/
+    destination: /home/ubuntu/
 hooks:
   ApplicationStop:
     - location: scripts/stop-apache.sh
