@@ -1,0 +1,26 @@
+sudo apt install apache2
+sudo apt install php libapache2-mod-php php-mysql 
+sudo apt update
+sudo apt install php-curl php-gd php-mbstring php-xml php-xmlrpc php-soap php-intl php-zip
+sudo systemctl restart apache2
+sudo vi /etc/apache2/sites-available/wordpress.conf
+sudo a2enmod rewrite
+sudo apache2ctl configtest
+sudo systemctl restart apache2
+
+
+sudo apt update -y
+sudo apt install -y ruby
+cd /home/ubuntu
+wget https://aws-codedeploy-us-west-2.s3.us-west-2.amazonaws.com/latest/install
+chmod +x ./install
+sudo ./install auto
+sudo service codedeploy-agent start
+status=$(sudo service codedeploy-agent status)
+
+if [[ $status == *"running"* ]]; then
+    echo "AWS CodeDeploy agent is running."
+else
+    echo "AWS CodeDeploy agent is not running."
+    exit 1
+fi
