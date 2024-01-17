@@ -1,10 +1,10 @@
 version: 0.2
-# env: 
-#   secrets-manager:
-#     DB_USER: arn:aws:secretsmanager:ap-south-1:391964367856:secret:new-wordpress-cred-5DrtXR:username
-#     DB_PASSWORD : arn:aws:secretsmanager:ap-south-1:391964367856:secret:new-wordpress-cred-5DrtXR:password
-#     DB_HOST: arn:aws:secretsmanager:ap-south-1:391964367856:secret:new-wordpress-cred-5DrtXR:host
-#     DB_NAME: arn:aws:secretsmanager:ap-south-1:391964367856:secret:wordpressdbname-jDbcII:database_name
+env: 
+  secrets-manager:
+    DB_USER: arn:aws:secretsmanager:ap-south-1:391964367856:secret:new-wordpress-cred-5DrtXR:username
+    DB_PASSWORD : arn:aws:secretsmanager:ap-south-1:391964367856:secret:new-wordpress-cred-5DrtXR:password
+    DB_HOST: arn:aws:secretsmanager:ap-south-1:391964367856:secret:new-wordpress-cred-5DrtXR:host
+    DB_NAME: arn:aws:secretsmanager:ap-south-1:391964367856:secret:wordpressdbname-jDbcII:database_name
   
 phases:
   install:
@@ -12,17 +12,17 @@ phases:
       php: 8.2
   pre_build:
     commands:
-    #   - sudo apt install -y gettext
-    #   - export DB_NAME=$DB_NAME
-    #   - export DB_USER=$DB_USER
-    #   - export DB_PASS=$DB_PASSWORD
-    #   - export DB_HOST=$DB_HOST
-      #- zip -r wordpress.zip ./*
+      - sudo apt install -y gettext
+      - export DB_NAME=$DB_NAME
+      - export DB_USER=$DB_USER
+      - export DB_PASS=$DB_PASSWORD
+      - export DB_HOST=$DB_HOST
+      - zip -r wordpress.zip ./*
   build:
     commands:
-    #   - envsubst < ./wordpress/wp-config-sample.php
-    #   - envsubst < ./wordpress/wp-config-sample.php >> ./wordpress/wp-config.php
-    #   - cat ./wordpress/wp-config.php
+      - envsubst < ./wordpress/wp-config-sample.php
+      - envsubst < ./wordpress/wp-config-sample.php >> ./wordpress/wp-config.php
+      - cat ./wordpress/wp-config.php
 artifacts:
   files: 
     - '**/*'
